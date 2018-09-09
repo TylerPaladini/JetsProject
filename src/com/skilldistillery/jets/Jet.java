@@ -4,14 +4,11 @@ public abstract class Jet {
 	private String planeModel;
 	private double speedMph;
 	private int range;
-	private long price;
+	private double price;
 	private double fuelCapacity;
 
-//	public Jet(String model, double speedMph, int range, long price) {
-//		this(model, speedMph, range, price, 0.0);
-//	}  do i need this..........................................
 
-	public Jet(String planeModel, double speedMph, int range, long price, double fuelCapacity) {
+	public Jet(String planeModel, double speedMph, int range, double price, double fuelCapacity) {
 		super();
 		this.planeModel = planeModel;
 		this.speedMph = speedMph;
@@ -20,7 +17,11 @@ public abstract class Jet {
 		this.fuelCapacity = fuelCapacity;
 	}
 
-	public abstract void fly();
+	public void fly() {
+		double time = range / speedMph;
+		System.out.println(planeModel + speedMph + range + price + fuelCapacity + time);
+		System.out.println("444444444444444444444");
+	}
 
 	public abstract void getSpeedInMach();
 
@@ -48,11 +49,11 @@ public abstract class Jet {
 		this.range = range;
 	}
 
-	public long getPrice() {
+	public double getPrice() {
 		return price;
 	}
 
-	public void setPrice(long price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 
@@ -66,8 +67,14 @@ public abstract class Jet {
 
 	@Override
 	public String toString() {
-		return "Jet [planeModel=" + planeModel + ", speedMph=" + speedMph + ", range=" + range + ", price=" + price
-				+ ", fuelCapacity=" + fuelCapacity + ", toString()=" + super.toString() + "]";
+		return "Plane: " + planeModel + ", Speed: " + speedMph + " mph, Range: " + range + " miles, Price: " + price
+				+ ", Fuel: " + fuelCapacity + " gallons";
 	}
+
+	
+
+	
+	
+	
 
 }

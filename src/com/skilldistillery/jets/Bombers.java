@@ -4,10 +4,9 @@ public class Bombers extends Jet {
 	private String bombType;
 	private int bombAmount;
 
-	public Bombers(){
-	}
+	
 
-	public Bombers(String planeModel, double speedMph, int range, long price, double fuelCapacity) {
+	public Bombers(String planeModel, double speedMph, int range, double price, double fuelCapacity) {
 		super(planeModel, speedMph, range, price, fuelCapacity);
 	}
 
@@ -39,9 +38,7 @@ public class Bombers extends Jet {
 
 	@Override
 	public String toString() {
-		return "Bombers [getPlaneModel()=" + getPlaneModel() + ", getSpeedMph()=" + getSpeedMph() + ", getRange()="
-				+ getRange() + ", getPrice()=" + getPrice() + ", getFuelCapacity()=" + getFuelCapacity()
-				+ ", toString()=" + super.toString() + "]";
+		return super.toString();
 	}
 	private void dropBombs() {
 		System.out.println("BOOM BOOM BOOM BOOM");

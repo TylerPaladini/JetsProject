@@ -1,11 +1,10 @@
 package com.skilldistillery.jets;
 
-public class CargoPlane extends Jet {
+public class CargoPlane extends Jet implements CargoCarrier, CombatReady {
+	private double cargoAmount;
 
-	public CargoPlane() {
-	}
 
-	public CargoPlane(String planeModel, double speedMph, int range, long price, double fuelCapacity) {
+	public CargoPlane(String planeModel, double speedMph, int range, double price, double fuelCapacity) {
 		super(planeModel, speedMph, range, price, fuelCapacity);
 	}
 
@@ -20,6 +19,7 @@ public class CargoPlane extends Jet {
 	}
 
 	public void loadCargo() {
+		System.out.println("Load it up!!!");
 
 	}
 
@@ -27,10 +27,22 @@ public class CargoPlane extends Jet {
 		System.out.println("I'm a heavy lifter!!!");
 	}
 
+	public double getCargoAmount() {
+		return cargoAmount;
+	}
+
+	public void setCargoAmount(double cargoAmount) {
+		this.cargoAmount = cargoAmount;
+	}
+
 	@Override
 	public String toString() {
-		return "CargoPlane [getPlaneModel()=" + getPlaneModel() + ", getSpeedMph()=" + getSpeedMph() + ", getRange()="
-				+ getRange() + ", getPrice()=" + getPrice() + ", getFuelCapacity()=" + getFuelCapacity()
-				+ ", toString()=" + super.toString() + "]";
+		return super.toString();
+	}
+
+	@Override
+	public void fight() {
+		// TODO Auto-generated method stub
+		
 	}
 }

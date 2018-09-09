@@ -2,34 +2,61 @@ package com.skilldistillery.jets;
 
 import java.util.Scanner;
 
+
+
+
 public class JetApp {
+	Airfield airfield = new Airfield();
 
 	public static void main(String[] args) {
+		JetApp jetApp = new JetApp();
 		
-		Jet jet1 = new Jet("Sukhoi Su-35", 1_490, 2_240, 39_062_500, 25_400);
-		Jet jet2 = new Jet("A-10 Thunderbolt II", 439, 2_580,18_800_000, 11_000);
-		Jet jet3 = new Jet("Curtiss P-40 Warhawk", 378, 240,  44_892, 134);
-		Jet jet4 = new Jet("Antonov An-225 Mriya", 528, 9_569, 250_000_000, 661_000);
-		Jet jet5 = new Jet("Boeing C-17 Globemaster III", 515, 2_785, 218_000_000, 35_546);
-		Jet jet6 = new Jet("Northrup Grumman B-2 Spirit", 630, 6_900, 737_000_000, 167_000);
-		Jet jet7 = new Jet("Tupolev Tu-95", 575, 9_400, 26_000_000, 29_100);
+		jetApp.run();
+
+//		jetApp.displayUserMenu();
 		
 
-		Airfield airfield = new Airfield();
 		
-		airfield.addJets(jet1);
-		airfield.addJets(jet2);
-		airfield.addJets(jet3);
-		airfield.addJets(jet4);
-		airfield.addJets(jet5);
-		airfield.addJets(jet6);
-		airfield.addJets(jet7);
 		
-
-		dispayUserMenu();
+		
+	}
+	public void run() {
+		
+		
+		Jet[] jets = new Jet[100];
+		
+		Jet jet1 = new FighterJet("Sukhoi Su-35", 1_490, 2_240, 39_000_000, 25_400);
+		Jet jet2 = new FighterJet("A-10 Thunderbolt II", 439, 2_580, 18_800_000, 11_000);
+		Jet jet3 = new FighterJet("Curtiss P-40 Warhawk", 378, 240, 44_892, 134);
+		Jet jet4 = new CargoPlane("Antonov An-225 Mriya", 528, 9_569, 250_000_000, 661_000);
+		Jet jet5 = new CargoPlane("Boeing C-17 Globemaster III", 515, 2_785, 218_000_000, 35_546);
+		Jet jet6 = new Bombers("Northrup Grumman B-2 Spirit", 630, 6_900, 737_000_000, 167_000);
+		Jet jet7 = new Bombers("Tupolev Tu-95", 575, 9_400, 26_000_000, 29_100);
+		
+		jets[0] = jet1;
+		jets[1] = jet2;
+		jets[2] = jet3;
+		jets[3] = jet4;
+		jets[4] = jet5;
+		jets[5] = jet6;
+		jets[6] = jet7;
+		
+		
+		airfield.setJets(jets);
+		
+		
+		airfield.listFleet();
+		System.out.println();
+//	airfield.displayFly();
+		
+		
 	}
 
-	private static void dispayUserMenu() {
+	
+		
+	
+
+	public void displayUserMenu() {
 		Scanner keyboard = new Scanner(System.in);
 
 		System.out.println("1: List fleet");
@@ -40,10 +67,21 @@ public class JetApp {
 		System.out.println("6: Dogfight");
 		System.out.println("7: Add a jet to the fleet");
 		System.out.println("8: Quit");
-		String choice = keyboard.next();
+		int choice = keyboard.nextInt();
+		
+		switch (choice) {
+		case 1: airfield.listFleet();
+			break;
+		case 2: airfield.displayFly();
+			break;
+			
+			}
+			
+		}
+		
+
 	}
 
-	public static void launchJets() {
+	
+	
 
-	}
-}

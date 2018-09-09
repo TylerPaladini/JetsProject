@@ -1,12 +1,10 @@
 package com.skilldistillery.jets;
 
-public class FighterJet extends Jet {
+public class FighterJet extends Jet implements CargoCarrier, CombatReady{
 
-	public FighterJet() {
-		
-	}
+	
 
-	public FighterJet(String planeModel, double speedMph, int range, long price, double fuelCapacity) {
+	public FighterJet(String planeModel, double speedMph, int range, double price, double fuelCapacity) {
 		super(planeModel, speedMph, range, price, fuelCapacity);
 	}
 
@@ -22,12 +20,21 @@ public class FighterJet extends Jet {
 
 	@Override
 	public String toString() {
-		return "FighterJet [getPlaneModel()=" + getPlaneModel() + ", getSpeedMph()=" + getSpeedMph() + ", getRange()="
-				+ getRange() + ", getPrice()=" + getPrice() + ", getFuelCapacity()=" + getFuelCapacity()
-				+ ", toString()=" + super.toString() + "]";
+		return super.toString();
 	}
 	public void shooter() {
 		System.out.println("PEW PEW PEW PEW");
+	}
+
+	@Override
+	public void fight() {
+		System.out.println("Get ready to fight!!");
+		
+	}
+
+	@Override
+	public void loadCargo() {
+		
 	}
 
 }
