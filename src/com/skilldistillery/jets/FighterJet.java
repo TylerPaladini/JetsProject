@@ -35,6 +35,6 @@ public class FighterJet extends Jet implements CargoCarrier, CombatReady{
 	@Override
 	public void loadCargo() {
 		
-	}
+	} /////don't think this should be with FihterJet.......?
 
 }

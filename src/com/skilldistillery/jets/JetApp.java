@@ -1,30 +1,25 @@
 package com.skilldistillery.jets;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
-
-
-
 
 public class JetApp {
 	Airfield airfield = new Airfield();
 
 	public static void main(String[] args) {
 		JetApp jetApp = new JetApp();
-		
+
 		jetApp.run();
 
-//		jetApp.displayUserMenu();
-		
+		jetApp.displayUserMenu();
 
-		
-		
-		
 	}
+
 	public void run() {
-		
-		
+
 		Jet[] jets = new Jet[100];
-		
+
 		Jet jet1 = new FighterJet("Sukhoi Su-35", 1_490, 2_240, 39_000_000, 25_400);
 		Jet jet2 = new FighterJet("A-10 Thunderbolt II", 439, 2_580, 18_800_000, 11_000);
 		Jet jet3 = new FighterJet("Curtiss P-40 Warhawk", 378, 240, 44_892, 134);
@@ -32,7 +27,7 @@ public class JetApp {
 		Jet jet5 = new CargoPlane("Boeing C-17 Globemaster III", 515, 2_785, 218_000_000, 35_546);
 		Jet jet6 = new Bombers("Northrup Grumman B-2 Spirit", 630, 6_900, 737_000_000, 167_000);
 		Jet jet7 = new Bombers("Tupolev Tu-95", 575, 9_400, 26_000_000, 29_100);
-		
+
 		jets[0] = jet1;
 		jets[1] = jet2;
 		jets[2] = jet3;
@@ -40,21 +35,14 @@ public class JetApp {
 		jets[4] = jet5;
 		jets[5] = jet6;
 		jets[6] = jet7;
-		
-		
 		airfield.setJets(jets);
-		
-		
+
 		airfield.listFleet();
 		System.out.println();
-//	airfield.displayFly();
-		
-		
-	}
 
-	
-		
-	
+		airfield.displayFly();
+
+	}
 
 	public void displayUserMenu() {
 		Scanner keyboard = new Scanner(System.in);
@@ -67,21 +55,42 @@ public class JetApp {
 		System.out.println("6: Dogfight");
 		System.out.println("7: Add a jet to the fleet");
 		System.out.println("8: Quit");
+		System.out.println();
 		int choice = keyboard.nextInt();
-		
+
 		switch (choice) {
-		case 1: airfield.listFleet();
+		case 1:
+			airfield.listFleet();
 			break;
-		case 2: airfield.displayFly();
+		case 2:
+			airfield.displayFly();
 			break;
-			
-			}
-			
+		case 3:
+
 		}
-		
 
 	}
 
-	
-	
+	// should this be in airfield?
+	public Jet findFastest(Jet[] jets) {
+		for (Jet jet : jets) {
+			if (jet.getSpeedMph() > 10) {
 
+			}
+		}
+
+		return null;
+
+	}
+
+	public Jet longestRange(Jet[] jets) {
+		for (Jet jet : jets) {
+			if (jet.getRange() > 100) {
+
+			}
+		}
+
+		return null;
+
+	}
+}

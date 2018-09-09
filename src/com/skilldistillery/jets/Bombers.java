@@ -10,6 +10,8 @@ public class Bombers extends Jet {
 		super(planeModel, speedMph, range, price, fuelCapacity);
 	}
 
+	
+	
 	@Override
 	public void fly() {
 
@@ -41,6 +43,7 @@ public class Bombers extends Jet {
 		return super.toString();
 	}
 	private void dropBombs() {
+		// figure out how to have interface print this when drop bombs is called
 		System.out.println("BOOM BOOM BOOM BOOM");
 	}
 

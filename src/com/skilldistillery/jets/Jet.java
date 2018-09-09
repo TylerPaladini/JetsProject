@@ -20,7 +20,7 @@ public abstract class Jet {
 	public void fly() {
 		double time = range / speedMph;
 		System.out.println(planeModel + speedMph + range + price + fuelCapacity + time);
-		System.out.println("444444444444444444444");
+		System.out.println("-----------------------------------");
 	}
 
 	public abstract void getSpeedInMach();
@@ -64,12 +64,15 @@ public abstract class Jet {
 	public void setFuelCapacity(double fuelCapacity) {
 		this.fuelCapacity = fuelCapacity;
 	}
+	
 
 	@Override
 	public String toString() {
 		return "Plane: " + planeModel + ", Speed: " + speedMph + " mph, Range: " + range + " miles, Price: " + price
 				+ ", Fuel: " + fuelCapacity + " gallons";
 	}
+
+	
 
 	
 
