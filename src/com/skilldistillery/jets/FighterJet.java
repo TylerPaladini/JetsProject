@@ -2,7 +2,9 @@ package com.skilldistillery.jets;
 
 public class FighterJet extends Jet implements CargoCarrier, CombatReady{
 
-
+public FighterJet() {
+	
+}
 
 	public FighterJet(String planeModel, double speedMph, int range, double price, double fuelCapacity) {
 		super(planeModel, speedMph, range, price, fuelCapacity);
@@ -19,9 +21,7 @@ public class FighterJet extends Jet implements CargoCarrier, CombatReady{
 	public String toString() {
 		return super.toString();
 	}
-	public void shooter() {
-		System.out.println("PEW PEW PEW PEW");
-	}
+
 
 	@Override
 	public void fight() {
@@ -29,9 +29,9 @@ public class FighterJet extends Jet implements CargoCarrier, CombatReady{
 		
 	}
 
-	@Override
+
 	public void loadCargo() {
 		
-	} /////don't think this should be with FihterJet.......?
+	}
 
 }

@@ -6,6 +6,10 @@ public abstract class Jet {
 	private int range;
 	private double price;
 	private double fuelCapacity;
+	
+	public Jet() {
+		
+	}
 
 
 	public Jet(String planeModel, double speedMph, int range, double price, double fuelCapacity) {
@@ -64,6 +68,7 @@ public abstract class Jet {
 	public void setFuelCapacity(double fuelCapacity) {
 		this.fuelCapacity = fuelCapacity;
 	}
+	
 	
 
 	@Override

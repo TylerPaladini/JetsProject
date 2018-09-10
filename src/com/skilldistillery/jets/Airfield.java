@@ -1,6 +1,8 @@
 package com.skilldistillery.jets;
 
 import java.util.Arrays;
+import java.util.Scanner;
+
 
 public class Airfield {
 
@@ -9,8 +11,10 @@ public class Airfield {
 
 	private final int MAX_JETS = 20;
 
-//	CargoPlane cargo = new CargoPlane();
-//	FighterJet fighter = new FighterJet();
+	CargoPlane cargo = new CargoPlane();
+	FighterJet fighter = new FighterJet();
+	JetImpl newJet = new JetImpl(); // added for adding a jet???
+	Bombers bomber = new Bombers();
 
 	public Airfield() {
 		jets = new Jet[MAX_JETS];
@@ -34,13 +38,7 @@ public class Airfield {
 		this.jets = jets;
 	}
 
-//	public int getNumJets() {
-//		return numJets;
-//	}
 
-//	public void setNumJets(int numJets) {
-//		this.numJets = numJets;
-//	}
 
 	public void listFleet() {
 		for (Jet jet : jets) {
@@ -118,6 +116,86 @@ public class Airfield {
 		if (numJets != other.numJets)
 			return false;
 		return true;
+	}
+	
+	public void loadCargo () {
+        for (Jet jet : jets) {
+            if ( jet != null ) {
+                if ( jet instanceof  CargoCarrier ) {
+                    System.out.println( jet.getPlaneModel() );
+                     cargo.loadCargo();
+                }
+            }
+        }
+    }
+	
+	public void fight () {
+        for (Jet jet : jets) {
+            if ( jet != null ) {
+                if ( jet instanceof FighterJet ) {
+                    System.out.println( jet.getPlaneModel() );
+                    fighter.fight();
+                }
+            }
+        }
+    }
+	
+	public void dropBombs() {
+		for (Jet jet : jets) {
+			if( jet != null) {
+				if ( jet instanceof Bombers) {
+					System.out.println(jet.getPlaneModel());
+					bomber.dropBombs();
+				}
+			}
+			
+		}
+	}
+	
+	public int addJet () {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Enter jet model(no spaces): ");
+        String name = keyboard.next();
+        System.out.println("Enter your jets speed(in mph): ");
+        double speed = keyboard.nextDouble();
+        System.out.println("Enter your jets range(in miles): ");
+        double range = keyboard.nextDouble();
+        System.out.println("Enter your jets price(in millions): ");
+        double price = keyboard.nextDouble();
+        price = price * 000001;
+        System.out.println("Enter your jets fuel capacity( in gallons):");
+        double fuel = keyboard.nextDouble();
+        menu();
+        System.out.println("Make another selection");
+        int input = keyboard.nextInt();
+        
+        for ( int i = 7; i < jets.length ; i ++) {
+            if ( jets[i] == null ) {
+                jets[i] = new JetImpl(name, speed, range, price, fuel );
+                return input;
+            }
+        }
+        
+    
+            
+        keyboard.close();
+        return 0;
+        
+        
+        
+    }
+	
+	public void menu() {
+		System.out.println("1: List fleet");
+		System.out.println("2: Fly all jets");
+		System.out.println("3: View fastest jet");
+		System.out.println("4: View jet with longest range");
+		System.out.println("5: Load all cargo jets");
+		System.out.println("6: Dogfight");
+		System.out.println("7: Srop bombs");
+		System.out.println("8: Add a jet to the fleet");
+		System.out.println("9: Quit");
+		System.out.println();
 	}
 	
 	

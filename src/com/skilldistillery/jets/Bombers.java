@@ -3,6 +3,10 @@ package com.skilldistillery.jets;
 public class Bombers extends Jet {
 	private String bombType;
 	private int bombAmount;
+	
+	public Bombers() {
+		
+	}
 
 	
 
@@ -12,10 +16,7 @@ public class Bombers extends Jet {
 
 	
 	
-//	@Override
-//	public void fly() {
 
-//	}
 
 	@Override
 	public void getSpeedInMach() {
@@ -42,7 +43,7 @@ public class Bombers extends Jet {
 	public String toString() {
 		return super.toString();
 	}
-	private void dropBombs() {
+	public void dropBombs() {
 		// figure out how to have interface print this when drop bombs is called
 		System.out.println("BOOM BOOM BOOM BOOM");
 	}

@@ -1,9 +1,11 @@
 package com.skilldistillery.jets;
 
 public class CargoPlane extends Jet implements CargoCarrier, CombatReady {
-	private double cargoAmount;
-
 	
+
+	public CargoPlane() {
+		
+	}
 
 	public CargoPlane(String planeModel, double speedMph, int range, double price, double fuelCapacity) {
 		super(planeModel, speedMph, range, price, fuelCapacity);
@@ -27,13 +29,13 @@ public class CargoPlane extends Jet implements CargoCarrier, CombatReady {
 		System.out.println("I'm a heavy lifter!!!");
 	}
 
-	public double getCargoAmount() {
-		return cargoAmount;
-	}
-
-	public void setCargoAmount(double cargoAmount) {
-		this.cargoAmount = cargoAmount;
-	}
+//	public double getCargoAmount() {
+//		return cargoAmount;
+//	}
+//
+//	public void setCargoAmount(double cargoAmount) {
+//		this.cargoAmount = cargoAmount;
+//	}
 
 	@Override
 	public String toString() {

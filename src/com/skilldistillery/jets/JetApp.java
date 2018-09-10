@@ -51,14 +51,15 @@ public class JetApp {
 			System.out.println("4: View jet with longest range");
 			System.out.println("5: Load all cargo jets");
 			System.out.println("6: Dogfight");
-			System.out.println("7: Add a jet to the fleet");
-			System.out.println("8: Quit");
+			System.out.println("7: Drop bombs");
+			System.out.println("8: Add a jet to the fleet");
+			System.out.println("9: Quit");
 			System.out.println();
 
 		
 		int choice = keyboard.nextInt();
 
-		while (choice != 9) {
+		while (choice != 10) {
 			switch (choice) {
 			case 1:
 				airfield.listFleet();
@@ -81,8 +82,34 @@ public class JetApp {
 				choice = keyboard.nextInt();
 				break;
 			case 5:
-
-			}
+				airfield.loadCargo();
+				displayMenu();
+				choice = keyboard.nextInt();
+				break;
+			case 6:
+				airfield.fight();
+				displayMenu();
+				choice = keyboard.nextInt();
+				break;
+			case 7:
+				airfield.dropBombs();
+				displayMenu();
+				choice = keyboard.nextInt();
+				break;
+			case 8:
+				airfield.addJet();
+				displayMenu();
+				choice = keyboard.nextInt();	
+				break;
+			case 9:
+				System.out.println("I hope you enjoyed the airshow.");
+				break;
+			default: 
+				System.out.println("You must enter 1-9 please.");
+				System.out.println("Make a selection.");
+				choice = keyboard.nextInt();
+				
+				}
 		}
 	}
 
