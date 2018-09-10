@@ -2,16 +2,13 @@ package com.skilldistillery.jets;
 
 public class FighterJet extends Jet implements CargoCarrier, CombatReady{
 
-	
+
 
 	public FighterJet(String planeModel, double speedMph, int range, double price, double fuelCapacity) {
 		super(planeModel, speedMph, range, price, fuelCapacity);
 	}
 
-	@Override
-	public void fly() {
 
-	}
 
 	@Override
 	public void getSpeedInMach() {

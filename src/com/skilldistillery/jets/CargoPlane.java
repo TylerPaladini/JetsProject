@@ -3,15 +3,14 @@ package com.skilldistillery.jets;
 public class CargoPlane extends Jet implements CargoCarrier, CombatReady {
 	private double cargoAmount;
 
+	
 
 	public CargoPlane(String planeModel, double speedMph, int range, double price, double fuelCapacity) {
 		super(planeModel, speedMph, range, price, fuelCapacity);
 	}
 
-	@Override
-	public void fly() {
 
-	}
+
 
 	@Override
 	public void getSpeedInMach() {
@@ -19,6 +18,7 @@ public class CargoPlane extends Jet implements CargoCarrier, CombatReady {
 	}
 
 	public void loadCargo() {
+		// figure out how to have only cargo carries respond to the CargoCArrier interface
 		System.out.println("Load it up!!!");
 
 	}
@@ -42,7 +42,6 @@ public class CargoPlane extends Jet implements CargoCarrier, CombatReady {
 
 	@Override
 	public void fight() {
-		// TODO Auto-generated method stub
 		
 	}
 }

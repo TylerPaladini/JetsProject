@@ -12,10 +12,10 @@ public class Bombers extends Jet {
 
 	
 	
-	@Override
-	public void fly() {
+//	@Override
+//	public void fly() {
 
-	}
+//	}
 
 	@Override
 	public void getSpeedInMach() {

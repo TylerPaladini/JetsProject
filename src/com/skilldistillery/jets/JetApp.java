@@ -1,7 +1,5 @@
 package com.skilldistillery.jets;
 
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.Scanner;
 
 public class JetApp {
@@ -12,13 +10,11 @@ public class JetApp {
 
 		jetApp.run();
 
-		jetApp.displayUserMenu();
-
 	}
 
 	public void run() {
 
-		Jet[] jets = new Jet[100];
+		Jet[] jets = new Jet[20];
 
 		Jet jet1 = new FighterJet("Sukhoi Su-35", 1_490, 2_240, 39_000_000, 25_400);
 		Jet jet2 = new FighterJet("A-10 Thunderbolt II", 439, 2_580, 18_800_000, 11_000);
@@ -38,59 +34,58 @@ public class JetApp {
 		airfield.setJets(jets);
 
 		airfield.listFleet();
+//		airfield.findFastest();
 		System.out.println();
-
-		airfield.displayFly();
+		displayMenu();
+//		airfield.displayFly();
 
 	}
 
-	public void displayUserMenu() {
+	public void displayMenu() {
 		Scanner keyboard = new Scanner(System.in);
 
-		System.out.println("1: List fleet");
-		System.out.println("2: Fly all jets");
-		System.out.println("3: View fastest jet");
-		System.out.println("4: View jet with longest range");
-		System.out.println("5: Load all cargo jets");
-		System.out.println("6: Dogfight");
-		System.out.println("7: Add a jet to the fleet");
-		System.out.println("8: Quit");
-		System.out.println();
+			
+			System.out.println("1: List fleet");
+			System.out.println("2: Fly all jets");
+			System.out.println("3: View fastest jet");
+			System.out.println("4: View jet with longest range");
+			System.out.println("5: Load all cargo jets");
+			System.out.println("6: Dogfight");
+			System.out.println("7: Add a jet to the fleet");
+			System.out.println("8: Quit");
+			System.out.println();
+
+		
 		int choice = keyboard.nextInt();
 
-		switch (choice) {
-		case 1:
-			airfield.listFleet();
-			break;
-		case 2:
-			airfield.displayFly();
-			break;
-		case 3:
-
-		}
-
-	}
-
-	// should this be in airfield?
-	public Jet findFastest(Jet[] jets) {
-		for (Jet jet : jets) {
-			if (jet.getSpeedMph() > 10) {
-
-			}
-		}
-
-		return null;
-
-	}
-
-	public Jet longestRange(Jet[] jets) {
-		for (Jet jet : jets) {
-			if (jet.getRange() > 100) {
+		while (choice != 9) {
+			switch (choice) {
+			case 1:
+				airfield.listFleet();
+				displayMenu();
+				choice = keyboard.nextInt();
+				break;
+			case 2:
+				airfield.displayFly();
+				displayMenu();
+				choice = keyboard.nextInt();
+				break;
+			case 3:
+				airfield.findFastest();
+				displayMenu();
+				choice = keyboard.nextInt();
+				break;
+			case 4:
+				airfield.longestRange();
+				displayMenu();
+				choice = keyboard.nextInt();
+				break;
+			case 5:
 
 			}
 		}
-
-		return null;
-
 	}
+
+
+
 }
