@@ -44,7 +44,6 @@ public class Bombers extends Jet {
 		return super.toString();
 	}
 	public void dropBombs() {
-		// figure out how to have interface print this when drop bombs is called
 		System.out.println("BOOM BOOM BOOM BOOM");
 	}
 

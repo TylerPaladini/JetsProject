@@ -1,8 +1,8 @@
 package com.skilldistillery.jets;
 
+import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.Scanner;
-
 
 public class Airfield {
 
@@ -10,6 +10,8 @@ public class Airfield {
 	private int numJets = 7;
 
 	private final int MAX_JETS = 20;
+
+	DecimalFormat df = new DecimalFormat("00.00");
 
 	CargoPlane cargo = new CargoPlane();
 	FighterJet fighter = new FighterJet();
@@ -19,7 +21,7 @@ public class Airfield {
 	public Airfield() {
 		jets = new Jet[MAX_JETS];
 	}
-	 
+
 	public Airfield(Jet[] jets) {
 		this.jets = jets;
 	}
@@ -38,12 +40,12 @@ public class Airfield {
 		this.jets = jets;
 	}
 
-
-
 	public void listFleet() {
 		for (Jet jet : jets) {
 			if (jet != null) {
 				System.out.println(jet.toString());
+				System.out.println(
+						"**************************************************************************************************************");
 			}
 
 		}
@@ -72,26 +74,28 @@ public class Airfield {
 
 		}
 
-		System.out.println("The fastest jet is " + fastJet);
-		System.out.println("It can go " + fast + " mph");
+		System.out.println("The fastest jet is the " + fastJet + ".");
+		System.out.println("It can go " + df.format(fast) + " mph.");
+		System.out.println("Now that is FAST!!!!!");
 
 	}
 
 	public void longestRange() {
-			double range = jets[0].getRange();
-			String fastJet = jets[0].getPlaneModel();
-			for (int i = 0; i < jets.length; i++) {
-				if(jets[i] != null) {
-					if(jets[i].getSpeedMph() > range) {
-						range = jets[i].getRange();
-						fastJet = jets[i].getPlaneModel();				}
+		double range = jets[0].getRange();
+		String fastJet = jets[0].getPlaneModel();
+		for (int i = 0; i < jets.length; i++) {
+			if (jets[i] != null) {
+				if (jets[i].getRange() > range) {
+					range = jets[i].getRange();
+					fastJet = jets[i].getPlaneModel();
 				}
-				
-				
 			}
-			System.out.println("The jet with the longest range is " + fastJet);
-			System.out.println("It can go " + range + " miles");
+
 		}
+		System.out.println("The jet with the longest range is the " + fastJet + ".");
+		System.out.println("It can go " + df.format(range) + " miles.");
+		System.out.println("No layovers on this flight.");
+	}
 
 	@Override
 	public int hashCode() {
@@ -117,75 +121,72 @@ public class Airfield {
 			return false;
 		return true;
 	}
-	
-	public void loadCargo () {
-        for (Jet jet : jets) {
-            if ( jet != null ) {
-                if ( jet instanceof  CargoCarrier ) {
-                    System.out.println( jet.getPlaneModel() );
-                     cargo.loadCargo();
-                }
-            }
-        }
-    }
-	
-	public void fight () {
-        for (Jet jet : jets) {
-            if ( jet != null ) {
-                if ( jet instanceof FighterJet ) {
-                    System.out.println( jet.getPlaneModel() );
-                    fighter.fight();
-                }
-            }
-        }
-    }
-	
+
+	public void loadCargo() {
+		for (Jet jet : jets) {
+			if (jet != null) {
+				if (jet instanceof CargoPlane) {
+					System.out.println(jet.getPlaneModel());
+					cargo.loadCargo();
+				}
+			}
+		}
+	}
+
+	public void fight() {
+		for (Jet jet : jets) {
+			if (jet != null) {
+				if (jet instanceof FighterJet) {
+					System.out.println(jet.getPlaneModel());
+					fighter.fight();
+				}
+			}
+		}
+	}
+
 	public void dropBombs() {
 		for (Jet jet : jets) {
-			if( jet != null) {
-				if ( jet instanceof Bombers) {
+			if (jet != null) {
+				if (jet instanceof Bombers) {
 					System.out.println(jet.getPlaneModel());
 					bomber.dropBombs();
 				}
 			}
-			
+
 		}
 	}
-	
-	public int addJet () {
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("Enter jet model(no spaces): ");
-        String name = keyboard.next();
-        System.out.println("Enter your jets speed(in mph): ");
-        double speed = keyboard.nextDouble();
-        System.out.println("Enter your jets range(in miles): ");
-        double range = keyboard.nextDouble();
-        System.out.println("Enter your jets price(in millions): ");
-        double price = keyboard.nextDouble();
-        price = price * 000001;
-        System.out.println("Enter your jets fuel capacity( in gallons):");
-        double fuel = keyboard.nextDouble();
-        menu();
-        System.out.println("Make another selection");
-        int input = keyboard.nextInt();
-        
-        for ( int i = 7; i < jets.length ; i ++) {
-            if ( jets[i] == null ) {
-                jets[i] = new JetImpl(name, speed, range, price, fuel );
-                return input;
-            }
-        }
-        
-    
-            
-        keyboard.close();
-        return 0;
-        
-        
-        
-    }
-	
+
+	public int addJet() {
+		Scanner keyboard = new Scanner(System.in);
+		System.out.println("Enter jet model: ");
+		String name = keyboard.nextLine();
+		System.out.println("Enter your jets speed(in mph): ");
+		double speed = keyboard.nextDouble();
+		System.out.println("Enter your jets range(in miles): ");
+		double range = keyboard.nextDouble();
+		System.out.println("Enter your jets price(in millions): ");
+		double price = keyboard.nextDouble();
+		price = price * 000001;
+		System.out.println("Enter your jets fuel capacity( in gallons):");
+		double fuel = keyboard.nextDouble();
+		menu();
+		System.out.println("Make another selection");
+		int input = keyboard.nextInt();
+
+		for (int i = 7; i < jets.length; i++) {
+			if (jets[i] == null) {
+				jets[i] = new JetImpl(name, speed, range, price, fuel);
+				return input;
+			}
+		}
+
+		keyboard.close();
+		return 0;
+
+	}
+
 	public void menu() {
+		System.out.println();
 		System.out.println("1: List fleet");
 		System.out.println("2: Fly all jets");
 		System.out.println("3: View fastest jet");
@@ -197,8 +198,5 @@ public class Airfield {
 		System.out.println("9: Quit");
 		System.out.println();
 	}
-	
-	
-	
 
 }

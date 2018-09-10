@@ -34,29 +34,27 @@ public class JetApp {
 		airfield.setJets(jets);
 
 		airfield.listFleet();
-//		airfield.findFastest();
 		System.out.println();
 		displayMenu();
-//		airfield.displayFly();
+		System.out.println();
 
 	}
 
 	public void displayMenu() {
 		Scanner keyboard = new Scanner(System.in);
 
-			
-			System.out.println("1: List fleet");
-			System.out.println("2: Fly all jets");
-			System.out.println("3: View fastest jet");
-			System.out.println("4: View jet with longest range");
-			System.out.println("5: Load all cargo jets");
-			System.out.println("6: Dogfight");
-			System.out.println("7: Drop bombs");
-			System.out.println("8: Add a jet to the fleet");
-			System.out.println("9: Quit");
-			System.out.println();
+		System.out.println();
+		System.out.println("1: List fleet");
+		System.out.println("2: Fly all jets");
+		System.out.println("3: View fastest jet");
+		System.out.println("4: View jet with longest range");
+		System.out.println("5: Load all cargo jets");
+		System.out.println("6: Dogfight");
+		System.out.println("7: Drop bombs");
+		System.out.println("8: Add a jet to the fleet");
+		System.out.println("9: Quit");
+		System.out.println();
 
-		
 		int choice = keyboard.nextInt();
 
 		while (choice != 10) {
@@ -99,20 +97,18 @@ public class JetApp {
 			case 8:
 				airfield.addJet();
 				displayMenu();
-				choice = keyboard.nextInt();	
+				choice = keyboard.nextInt();
 				break;
 			case 9:
 				System.out.println("I hope you enjoyed the airshow.");
 				break;
-			default: 
+			default:
 				System.out.println("You must enter 1-9 please.");
 				System.out.println("Make a selection.");
 				choice = keyboard.nextInt();
-				
-				}
+
+			}
 		}
 	}
-
-
 
 }

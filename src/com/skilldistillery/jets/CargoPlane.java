@@ -20,7 +20,6 @@ public class CargoPlane extends Jet implements CargoCarrier, CombatReady {
 	}
 
 	public void loadCargo() {
-		// figure out how to have only cargo carries respond to the CargoCArrier interface
 		System.out.println("Load it up!!!");
 
 	}
@@ -29,13 +28,7 @@ public class CargoPlane extends Jet implements CargoCarrier, CombatReady {
 		System.out.println("I'm a heavy lifter!!!");
 	}
 
-//	public double getCargoAmount() {
-//		return cargoAmount;
-//	}
-//
-//	public void setCargoAmount(double cargoAmount) {
-//		this.cargoAmount = cargoAmount;
-//	}
+
 
 	@Override
 	public String toString() {

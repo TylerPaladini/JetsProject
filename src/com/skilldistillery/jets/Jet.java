@@ -1,11 +1,15 @@
 package com.skilldistillery.jets;
 
+import java.text.DecimalFormat;
+
 public abstract class Jet {
 	private String planeModel;
 	private double speedMph;
 	private int range;
 	private double price;
 	private double fuelCapacity;
+	
+	DecimalFormat df = new DecimalFormat("00.00");
 	
 	public Jet() {
 		
@@ -23,8 +27,8 @@ public abstract class Jet {
 
 	public void fly() {
 		double time = range / speedMph;
-		System.out.println(planeModel + speedMph + range + price + fuelCapacity + time);
-		System.out.println("-----------------------------------");
+		System.out.println("Plane: " + planeModel + " Speed: " + speedMph + " mph  Range: " + range + " miles Price: " + price + " Fuel: " + df.format(fuelCapacity) + " gallons Flight time: " + df.format(time) + " hours");
+		System.out.println("<<<<--------------------------------------------------------------->>>>");
 	}
 
 	public abstract void getSpeedInMach();
