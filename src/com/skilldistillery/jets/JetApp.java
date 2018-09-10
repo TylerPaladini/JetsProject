@@ -36,7 +36,6 @@ public class JetApp {
 		airfield.listFleet();
 		System.out.println();
 		displayMenu();
-		System.out.println();
 
 	}
 
@@ -57,7 +56,7 @@ public class JetApp {
 
 		int choice = keyboard.nextInt();
 
-		while (choice != 10) {
+		while (choice != 9) {
 			switch (choice) {
 			case 1:
 				airfield.listFleet();

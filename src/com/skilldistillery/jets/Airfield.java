@@ -64,11 +64,17 @@ public class Airfield {
 	public void findFastest() {
 		double fast = jets[0].getSpeedMph();
 		String fastJet = jets[0].getPlaneModel();
+		int jetR = jets[0].getRange();
+		double price = jets[0].getPrice();
+		double fuel = jets[0].getFuelCapacity();
 		for (int i = 0; i < jets.length; i++) {
 			if (jets[i] != null) {
 				if (jets[i].getSpeedMph() > fast) {
 					fast = jets[i].getSpeedMph();
 					fastJet = jets[i].getPlaneModel();
+					jetR = jets[i].getRange();
+					price = jets[i].getPrice();
+					fuel = jets[i].getFuelCapacity();
 				}
 			}
 
@@ -76,13 +82,17 @@ public class Airfield {
 
 		System.out.println("The fastest jet is the " + fastJet + ".");
 		System.out.println("It can go " + df.format(fast) + " mph.");
-		System.out.println("Now that is FAST!!!!!");
+		System.out.println("Now that is FAST!!!");
+		System.out.println("Range: " + jetR + " miles, Fuel capacity: " + fuel + " gallons,  Price: " + price + " million");
 
 	}
 
 	public void longestRange() {
 		double range = jets[0].getRange();
 		String fastJet = jets[0].getPlaneModel();
+		double jetSpeed = jets[0].getSpeedMph();
+		double price = jets[0].getPrice();
+		double fuel = jets[0].getFuelCapacity();
 		for (int i = 0; i < jets.length; i++) {
 			if (jets[i] != null) {
 				if (jets[i].getRange() > range) {
@@ -95,6 +105,7 @@ public class Airfield {
 		System.out.println("The jet with the longest range is the " + fastJet + ".");
 		System.out.println("It can go " + df.format(range) + " miles.");
 		System.out.println("No layovers on this flight.");
+		System.out.println("Speed: " + jetSpeed + " mph, Fuel capacity: " + fuel + " gallons, Price: " + price + " million");
 	}
 
 	@Override
@@ -163,7 +174,7 @@ public class Airfield {
 		System.out.println("Enter your jets speed(in mph): ");
 		double speed = keyboard.nextDouble();
 		System.out.println("Enter your jets range(in miles): ");
-		double range = keyboard.nextDouble();
+		int range = keyboard.nextInt();
 		System.out.println("Enter your jets price(in millions): ");
 		double price = keyboard.nextDouble();
 		price = price * 000001;
